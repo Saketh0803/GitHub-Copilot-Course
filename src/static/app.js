@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         messageDiv.className = "success";
         signupForm.reset();
         // Refresh activities to show new participant
-        fetchActivities();
+        await fetchActivities();
       } else {
         messageDiv.textContent = result.detail || "An error occurred";
         messageDiv.className = "error";
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const result = await resp.json();
       if (resp.ok) {
         // Refresh the list to reflect removal
-        fetchActivities();
+        await fetchActivities();
       } else {
         console.error("Failed to remove participant:", result);
         alert(result.detail || "Failed to remove participant");
